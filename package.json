@@ -9,8 +9,11 @@
     "@": "dist"
   },
   "scripts": {
-    "watch": "tsc -w",
-    "dev": "nodemon ."
+    "start": "node dist/main",
+    "build": "esbuild src/main.ts --outfile=dist/main.js --bundle --minify",
+    "watch": "esbuild src/main.ts --outfile=dist/main.js --bundle --minify --watch",
+    "dev": "nodemon dist/main",
+    "test": "echo test"
   },
   "devDependencies": {
     "@types/node": "^16.6.2",
