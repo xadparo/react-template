@@ -10,13 +10,16 @@
   },
   "scripts": {
     "start": "node dist/main",
-    "build": "esbuild src/main.ts --outfile=dist/main.js --bundle --minify",
-    "watch": "esbuild src/main.ts --outfile=dist/main.js --bundle --minify --watch",
+    "build": "esbuild src/main.tsx --outdir=dist --platform=node --bundle --minify --tsconfig=tsconfig.json",
+    "watch": "esbuild src/main.tsx --outdir=dist --platform=node --bundle --minify --tsconfig=tsconfig.json --watch",
     "dev": "nodemon dist/main",
     "test": "echo test"
   },
   "devDependencies": {
+    "@types/express": "^4",
     "@types/node": "^16.6.2",
+    "@types/react": "^17",
+    "@types/react-dom": "^17",
     "@typescript-eslint/eslint-plugin": "^4.28.0",
     "@typescript-eslint/parser": "^4.28.0",
     "eslint": "^7.29.0",
@@ -25,6 +28,9 @@
   },
   "dependencies": {
     "@yarnpkg/pnpify": "^3.0.0-rc.7",
-    "esbuild": "^0.13.4"
+    "esbuild": "^0.13.4",
+    "express": "^4.17.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   }
 }
