@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
-import Index from './index'
+import Index from '@/index'
 
 import express from 'express'
 import path from 'path'

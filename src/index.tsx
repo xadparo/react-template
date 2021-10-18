@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './app'
+import App from '@/app'
 
 /**
  * React SSR용 컴포넌트 입니다.
