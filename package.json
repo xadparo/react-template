@@ -15,8 +15,8 @@
     "start": "node dist/main",
     "build": "esbuild src/main.tsx --outdir=dist --platform=node --bundle --minify --tsconfig=tsconfig.json",
     "watch": "esbuild src/main.tsx --outdir=dist --platform=node --bundle --minify --tsconfig=tsconfig.json --watch",
-    "build:fe": "esbuild src/index.tsx --outdir=dist --bundle --tsconfig=tsconfig.json",
-    "watch:fe": "esbuild src/index.tsx --outdir=dist --bundle --tsconfig=tsconfig.json --watch",
+    "build:fe": "esbuild src/index.tsx --outdir=dist --bundle --minify --tsconfig=tsconfig.json",
+    "watch:fe": "esbuild src/index.tsx --outdir=dist --bundle --minify --tsconfig=tsconfig.json --watch",
     "dev": "nodemon dist/main",
     "test": "echo test"
   },
