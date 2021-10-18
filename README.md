@@ -7,4 +7,5 @@
 
 ### Fork 시 TODO
 
-- [ ] public/index.html 세팅
+- [ ] favicon.ico 세팅
+- [ ] app.tsx를 메인으로 삼아서 개발 시작
