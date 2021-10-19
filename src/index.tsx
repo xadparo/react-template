@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from '@/app'
+import './index.css'
 
 /**
  * React SSR용 컴포넌트 입니다.
@@ -8,6 +9,9 @@ import App from '@/app'
  * @return {JSX.Element}
  */
 export const Index = () => <html lang="ko">
+  <head>
+    <link rel="stylesheet" href="./index.css"/>
+  </head>
   <div id="root">
     <App/>
   </div>

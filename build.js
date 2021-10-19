@@ -5,7 +5,11 @@ const argv = process.argv.slice(2)
 const argm = {}
 argv.forEach((arg) => argm[arg] = true)
 
-const watch = argm['-w'] || false
+const watch = (argm['-w'] || false) && {
+  onRebuild() {
+    console.log(`rebuild ${new Date}`)
+  },
+}
 
 const backendConfig = {
   entryPoints: ['src/main.tsx'],
@@ -14,6 +18,10 @@ const backendConfig = {
 const frontendConfig = {
   entryPoints: ['src/index.tsx'],
   platform: 'browser',
+
+  plugins: [
+    require('esbuild-postcss')(),
+  ],
 }
 const defaultConfig = {
   watch,
