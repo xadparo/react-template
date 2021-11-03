@@ -15,7 +15,7 @@ export const Index = () => <html lang="ko">
   <div id="root">
     <App/>
   </div>
-  <script src="./index.js"/>
+  <script type="module" src="./index.js"/>
 </html>
 export default Index
 
