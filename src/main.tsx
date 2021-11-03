@@ -23,9 +23,10 @@ server
   .use(express.static(path.resolve(__dirname, '../public')))
   /** 캐치되지 않은 URL은 모두 React Index를 렌더링 합니다. */
   .use((req, res) => {
+    const context = {}
     res.end(
-        <StaticRouter location={req.url}>
       ReactDOMServer.renderToString(
+        <StaticRouter location={req.url} context={context}>
           <Index/>
         </StaticRouter>,
       ),
