@@ -5,11 +5,7 @@ const argv = process.argv.slice(2)
 const argm = {}
 argv.forEach((arg) => argm[arg] = true)
 
-const watch = (argm['-w'] || false) && {
-  onRebuild() {
-    console.log(`rebuild ${new Date}`)
-  },
-}
+const watch = (argm['-w'] || false)
 
 const backendConfig = {
   entryPoints: ['src/main.tsx'],
@@ -24,7 +20,11 @@ const frontendConfig = {
   ],
 }
 const defaultConfig = {
-  watch,
+  watch: watch && {
+    onRebuild() {
+      console.log(`rebuild ${new Date}`)
+    },
+  },
   bundle: true,
   minify: true,
   sourcemap: false,
