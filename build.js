@@ -27,7 +27,7 @@ const defaultConfig = {
   },
   bundle: true,
   minify: true,
-  sourcemap: false,
+  sourcemap: watch,
   outdir: 'dist',
   tsconfig: 'tsconfig.json',
 }
