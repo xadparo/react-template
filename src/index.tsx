@@ -10,12 +10,12 @@ import './index.css'
  */
 export const Index = () => <html lang="ko">
   <head>
-    <link rel="stylesheet" href="./index.css"/>
+    <link rel="stylesheet" href="/index.css"/>
   </head>
   <div id="root">
     <App/>
   </div>
-  <script type="module" src="./index.js"/>
+  <script type="module" src="/index.js"/>
 </html>
 export default Index
 
