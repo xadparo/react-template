@@ -1,5 +1,5 @@
 import React from 'react'
-import { Router } from 'react-router-dom'
+import { Route, Router, Switch } from 'react-router-dom'
 import { createBrowserHistory, createMemoryHistory } from 'history'
 
 const createHistory = typeof(window) !== 'undefined'? createBrowserHistory: createMemoryHistory
@@ -7,9 +7,9 @@ const history = createHistory()
 
 export const App = () => {
   return <Router history={history}>
-    <div>
-      Hello world!
-    </div>
+    <Switch>
+      <Route path="/" component={() => <div>Hello world!</div>} />
+    </Switch>
   </Router>
 }
 export default App
