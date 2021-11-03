@@ -24,8 +24,8 @@ server
   /** 캐치되지 않은 URL은 모두 React Index를 렌더링 합니다. */
   .use((req, res) => {
     res.end(
-      ReactDOMServer.renderToNodeStream(
         <StaticRouter location={req.url}>
+      ReactDOMServer.renderToString(
           <Index/>
         </StaticRouter>,
       ),
