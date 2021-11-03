@@ -4,13 +4,11 @@ import { StaticRouter } from 'react-router-dom'
 import Index from '@/index'
 
 import express from 'express'
-import helmet from 'helmet'
 import path from 'path'
 
 const server = express()
 
 server
-  .use(helmet())
   /** main.js 는 서버 소스이므로 빌드결과물 노출에 포함되어선 안됩니다. */
   .use(({ path }, req, next) => {
     if (path === '/main.js') {
