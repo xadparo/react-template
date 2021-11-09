@@ -9,7 +9,6 @@ argv.forEach((arg) => argm[arg] = true)
 const watch = (argm['-w'] || false)
 
 const originEnv = { ...process.env }
-const dotenv = require('dotenv')
 dotenv.config()
 dotenv.config({ path: `.env.${process.env.NODE_ENV}` })
 const define = {}
