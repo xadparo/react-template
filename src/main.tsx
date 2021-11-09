@@ -24,12 +24,11 @@ server
   /** 캐치되지 않은 URL은 모두 React Index를 렌더링 합니다. */
   .use((req, res) => {
     const context = {}
-    res.end(
-      ReactDOMServer.renderToString(
-        <StaticRouter location={req.url} context={context}>
-          <Index/>
-        </StaticRouter>,
-      ),
-    )
+
+    ReactDOMServer.renderToNodeStream(
+      <StaticRouter location={req.url} context={context}>
+        <Index/>
+      </StaticRouter>,
+    ).pipe(res)
   })
   .listen(4000)
