@@ -21,10 +21,20 @@ for (const key in process.env) {
 }
 
 const backendConfig = {
+  watch: watch && {
+    onRebuild() {
+      console.log(`backend rebuild ${new Date}`)
+    },
+  },
   entryPoints: ['src/main.tsx'],
   platform: 'node',
 }
 const frontendConfig = {
+  watch: watch && {
+    onRebuild() {
+      console.log(`frontend rebuild ${new Date}`)
+    },
+  },
   entryPoints: ['src/index.tsx'],
   platform: 'browser',
 
@@ -33,11 +43,6 @@ const frontendConfig = {
   ],
 }
 const defaultConfig = {
-  watch: watch && {
-    onRebuild() {
-      console.log(`rebuild ${new Date}`)
-    },
-  },
   bundle: true,
   minify: true,
   sourcemap: watch,
