@@ -33,6 +33,7 @@
   "dependencies": {
     "@yarnpkg/pnpify": "^3.0.0-rc.7",
     "autoprefixer": "^10.3.7",
+    "dotenv": "^10.0.0",
     "esbuild": "^0.13.4",
     "esbuild-postcss": "^0.0.4",
     "express": "^4.17.1",
