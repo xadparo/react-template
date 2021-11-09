@@ -13,6 +13,8 @@ dist
 
 # env
 .envrc
+.env
+.env.*
 
 # mac
 .DS_Store
