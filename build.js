@@ -33,6 +33,7 @@ const backendProcessManager = {
 
     const child = this.child = childprocess.spawn('node', ['dist/main'])
     child.stdout.pipe(process.stdout)
+    console.log(chalk.blueBright`[Builder] Server (re)start ${new Date}`)
   },
 }
 
