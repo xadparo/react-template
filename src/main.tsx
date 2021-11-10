@@ -5,10 +5,12 @@ import Index from '@/index'
 
 import express from 'express'
 import path from 'path'
+import helmet from 'helmet'
 
 const server = express()
 
 server
+  .use(helmet())
   /** main.js 는 서버 소스이므로 빌드결과물 노출에 포함되어선 안됩니다. */
   .use(({ path }, req, next) => {
     if (path === '/main.js') {
@@ -24,6 +26,8 @@ server
   /** 캐치되지 않은 URL은 모두 React Index를 렌더링 합니다. */
   .use((req, res) => {
     const context = {}
+
+    res.setHeader('Content-Type', 'text/html')
 
     ReactDOMServer.renderToNodeStream(
       <StaticRouter location={req.url} context={context}>
