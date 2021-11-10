@@ -11,6 +11,12 @@
   "browser": {
     "path": "path-browserify"
   },
+  "lint-staged": {
+    "src/**/*": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
   "scripts": {
     "start": "node dist/main",
     "build": "node build",
