@@ -1,6 +1,7 @@
 const esbuild = require('esbuild')
 const process = require('process')
 const dotenv = require('dotenv')
+const childprocess = require('child_process')
 
 const argv = process.argv.slice(2)
 const argm = {}
@@ -20,10 +21,25 @@ for (const key in process.env) {
   define[`process.env.${key}`] = JSON.stringify(process.env[key] || '')
 }
 
+const backendProcessManager = {
+  child: null,
+  endChild() {
+    this.child?.kill()
+    this.child = null
+  },
+  startChild() {
+    this.endChild()
+
+    const child = this.child = childprocess.spawn('node', ['dist/main'])
+    child.stdout.pipe(process.stdout)
+  },
+}
+
 const backendConfig = {
   watch: watch && {
     onRebuild() {
       console.log(`backend rebuild ${new Date}`)
+      backendProcessManager.startChild()
     },
   },
   entryPoints: ['src/main.tsx'],
@@ -52,5 +68,8 @@ const defaultConfig = {
   define,
 }
 
+if (watch) {
+  backendProcessManager.startChild()
+}
 esbuild.build({ ...defaultConfig, ...backendConfig })
 esbuild.build({ ...defaultConfig, ...frontendConfig })
