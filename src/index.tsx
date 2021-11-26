@@ -10,6 +10,7 @@ import './index.css'
  */
 export const Index = () => <html lang="ko">
   <head>
+    <meta httpEquiv="Content-Type" content="text/html; charset=utf-8"/>
     <link rel="stylesheet" href="/index.css"/>
   </head>
   <div id="root">
