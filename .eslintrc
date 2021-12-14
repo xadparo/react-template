@@ -21,6 +21,7 @@
         "indent": ["error", 2],
         "guard-for-in": "off",
         "max-len": "off",
+        "new-cap": "off",
         "linebreak-style": ["error", "unix"]
     }
 }
