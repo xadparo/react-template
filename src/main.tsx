@@ -3,11 +3,10 @@ import ReactDOMServer from 'react-dom/server'
 import { StaticRouter } from 'react-router-dom'
 import Index from '@/index'
 
+import server from './server'
 import express from 'express'
 import path from 'path'
 import helmet from 'helmet'
-
-const server = express()
 
 server
   .use(helmet())
