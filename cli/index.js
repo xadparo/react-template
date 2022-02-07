@@ -6,8 +6,14 @@ async function cli() {
 
   const files = await fs.readdir(__dirname)
   const installations = files
-    .filter((file) => file !== 'index.js')
-    .map((file) => require('./' + file))
+    .map((fileLike) => {
+      try {
+        return require('./' + fileLike)
+      } catch (err) {
+        return err
+      }
+    })
+    .filter((fileLike) => fileLike.exec !== void 0)
 
   installations.forEach((installation) => {
     program.option(installation.flag, installation.name)
