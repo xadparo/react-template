@@ -23,7 +23,7 @@ async function cli() {
       const args = opts[installation.event]
 
       if (args) {
-        console.log(`[INFO] Start ... ${installation.name}`)
+        console.log(`[INFO] Start ${installation.name}...`)
         await installation.exec(args)
         console.log(`[INFO] Done, ${installation.name}`)
       }
