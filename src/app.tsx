@@ -1,15 +1,9 @@
 import React from 'react'
-import { Route, Router, Switch } from 'react-router-dom'
-import { createBrowserHistory, createMemoryHistory } from 'history'
-
-const createHistory = typeof(window) !== 'undefined'? createBrowserHistory: createMemoryHistory
-const history = createHistory()
+import { Route, Routes } from 'react-router-dom'
 
 export const App = () => {
-  return <Router history={history}>
-    <Switch>
-      <Route path="/" component={() => <div>Hello world!</div>} />
-    </Switch>
-  </Router>
+  return <Routes>
+    <Route path="/" element={<div>Hello world!</div>}/>
+  </Routes>
 }
 export default App

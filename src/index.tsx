@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import App from '@/app'
+import { BrowserRouter } from 'react-router-dom'
 import './index.css'
 
 /**
@@ -25,5 +26,7 @@ export default Index
  * 이 로직은 <script src="./index.js"/> 로써 실행 됩니다.
  */
 if (typeof document !== 'undefined') {
-  ReactDOM.render(<App/>, document.getElementById('root'))
+  ReactDOM.render(<BrowserRouter>
+    <App/>
+  </BrowserRouter>, document.getElementById('root'))
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOMServer from 'react-dom/server'
-import { StaticRouter } from 'react-router-dom'
+import { StaticRouter } from 'react-router-dom/server'
 import Index from '@/index'
 
 import server from './server'
@@ -24,12 +24,10 @@ server
   .use(express.static(path.resolve(__dirname, '../public')))
   /** 캐치되지 않은 URL은 모두 React Index를 렌더링 합니다. */
   .use((req, res) => {
-    const context = {}
-
     res.setHeader('Content-Type', 'text/html')
 
     ReactDOMServer.renderToNodeStream(
-      <StaticRouter location={req.url} context={context}>
+      <StaticRouter location={req.url}>
         <Index/>
       </StaticRouter>,
     ).pipe(res)
