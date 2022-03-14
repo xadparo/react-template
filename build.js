@@ -3,6 +3,7 @@ const process = require('process')
 const dotenv = require('dotenv')
 const childprocess = require('child_process')
 const chalk = require('chalk')
+const path = require('path')
 
 const argv = process.argv.slice(2)
 const argm = {}
@@ -59,6 +60,10 @@ const frontendConfig = {
 
   plugins: [
     require('esbuild-postcss')(),
+  ],
+  inject: [
+    path.join(__dirname, './src/shim/index.ts'),
+    path.join(__dirname, './src/shim/index.d.ts'),
   ],
 }
 const defaultConfig = {
