@@ -15,9 +15,15 @@ async function fileReplace(fromPath, toPath) {
 
   return fs.copyFile(fromPath, toPath)
 }
+async function dirRemove(fromPath) {
+  fromPath = path.resolve(fromPath)
+
+  return fs.rmdir(fromPath, { recursive: true })
+}
 
 module.exports = {
   yarnAdd,
   yarnRemove,
   fileReplace,
+  dirRemove,
 }
