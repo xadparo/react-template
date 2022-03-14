@@ -20,10 +20,15 @@ function dirRemove(fromPath) {
 
   return fs.rmdir(fromPath, { recursive: true })
 }
+function gitCommit(msg) {
+  execSync(`git add .`)
+  return execSync(`git commit -m "${msg}"`)
+}
 
 module.exports = {
   yarnAdd,
   yarnRemove,
   fileReplace,
   dirRemove,
+  gitCommit,
 }

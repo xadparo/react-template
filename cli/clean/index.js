@@ -1,10 +1,11 @@
-const { dirRemove } = require('../util')
+const { dirRemove, gitCommit } = require('../util')
 
 module.exports = {
   name: 'clean',
   flag: '--clean',
   event: 'clean',
   async exec() {
-    dirRemove('./cli')
+    await dirRemove('./cli')
+    gitCommit('chore: cleaned up cli')
   },
 }
