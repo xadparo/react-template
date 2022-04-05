@@ -1,5 +1,5 @@
 import React from 'react'
-import ReactDOMServer from 'react-dom/server'
+import ReactDom from 'react-dom/server'
 import { StaticRouter } from 'react-router-dom/server'
 import Index from '@/index'
 
@@ -7,6 +7,8 @@ import server from './server'
 import express from 'express'
 import path from 'path'
 import helmet from 'helmet'
+
+const { renderToPipeableStream } = ReactDom as any
 
 server
   .use(helmet())
@@ -26,7 +28,7 @@ server
   .use((req, res) => {
     res.setHeader('Content-Type', 'text/html')
 
-    ReactDOMServer.renderToNodeStream(
+    renderToPipeableStream(
       <StaticRouter location={req.url}>
         <Index/>
       </StaticRouter>,
