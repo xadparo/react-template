@@ -2,7 +2,6 @@ const esbuild = require('esbuild')
 const process = require('process')
 const dotenv = require('dotenv')
 const childprocess = require('child_process')
-const chalk = require('chalk')
 const path = require('path')
 
 const argv = process.argv.slice(2)
@@ -35,14 +34,14 @@ const backendProcessManager = {
     const child = this.child = childprocess.spawn('node', ['dist/main'])
     child.stdout.pipe(process.stdout)
     child.stderr.pipe(process.stderr)
-    console.log(chalk.blueBright`[Builder] Server (re)start ${new Date}`)
+    console.log(`[Builder] Server (re)start ${new Date}`)
   },
 }
 
 const backendConfig = {
   watch: watch && {
     onRebuild(err, result) {
-      console.log(chalk.blueBright`[Builder] BE Rebuild ${new Date}`)
+      console.log(`[Builder] BE Rebuild ${new Date}`)
       backendProcessManager.startChild()
     },
   },
@@ -52,7 +51,7 @@ const backendConfig = {
 const frontendConfig = {
   watch: watch && {
     onRebuild(err, result) {
-      console.log(chalk.blueBright`[Builder] FE Rebuild ${new Date}`)
+      console.log(`[Builder] FE Rebuild ${new Date}`)
     },
   },
   entryPoints: ['src/index.tsx'],
