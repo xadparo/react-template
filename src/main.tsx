@@ -34,4 +34,4 @@ server
       </StaticRouter>,
     ).pipe(res)
   })
-  .listen(4000)
+  .listen(80)
