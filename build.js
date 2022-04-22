@@ -75,8 +75,9 @@ const defaultConfig = {
   define,
 }
 
+esbuild.build({ ...defaultConfig, ...backendConfig })
+esbuild.build({ ...defaultConfig, ...frontendConfig })
+
 if (watch) {
   backendProcessManager.startChild()
 }
-esbuild.build({ ...defaultConfig, ...backendConfig })
-esbuild.build({ ...defaultConfig, ...frontendConfig })
